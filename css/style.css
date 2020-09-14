@@ -1,5 +1,10 @@
+:root {
+    --blue: #93d6ff;
+    --red: #e06354
+}
+
 body {
-	background-color: #FA8072;
+	background-color: var(--blue);
 	margin: 0;
 }
 
@@ -7,14 +12,14 @@ body {
 	font-family: Arial;
 	font-weight: 750;
 	font-size: 40px;
-	color: #87CEFA;
+	color: var(--red);
 	margin: 100px 100px;
 }
 
 .list-links {
     padding-left: 100px;
 	list-style-position: inside;
-	color: #87CEFA;
+	color: var(--red);
 }
 
 .list-elements {
@@ -25,7 +30,7 @@ body {
 	font-family: Arial;
 	font-weight: 500;
 	font-size: 30px;
-	color: #87CEFA;
+	color: var(--red);
 	text-decoration: none;
 }
 
@@ -39,7 +44,7 @@ body {
 	font-family: Arial;
 	font-weight: 750;
 	font-size: 40px;
-	color: #87CEFA;
+	color: var(--red);
     text-decoration:  none;
 }
 

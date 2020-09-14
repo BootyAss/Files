@@ -1,26 +1,31 @@
+:root {
+    --blue: #93d6ff;
+    --red: #e06354
+}
+
 body {
-    background-color: #FA8072;
+    background-color: var(--blue);
     margin: 0;
 }
 
 .button {
     margin: 10px 10px;
-        
+
     font-family: Arial;
     font-size: 16px;
     padding: 8px 16px;
     color: #000000;
-    
+
     border-radius: 6px;
-    border: 2px solid #87CEFA;
-    background-color: #FFFFFF;
+    border: 2px solid var(--red);
+    background-color: white;
 }
 
 .button:hover {
     transition-duration: 0.6s;
-    
+
     padding: 8px 16px;
-    background-color: #87CEFA;
+    background-color: var(--red);
 }
 
 .title {
@@ -29,15 +34,15 @@ body {
     font-family: Arial;
     font-weight: 700;
     font-size: 40px;
-    color: #87CEFA;
+    color: var(--red);
 }
 
 .link {
     margin-left: 160px;
     font-family: Arial;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 30px;
-    color: #87CEFA;
+    color: var(--red);
     text-decoration: none;
 }
 
