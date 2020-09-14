@@ -1,0 +1,14 @@
+body {
+	background: url("photosBack.jpg");
+	background-color: #FA8072;
+	margin: 0;
+}
+
+div {
+	font-family: Arial;
+	font-size: 30px;
+	color: #87CEFA;
+
+	width: 500px;
+	margin: 50px 50px;
+}
