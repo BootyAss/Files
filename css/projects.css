@@ -3,12 +3,17 @@ body {
 	margin: 0;
 }
 
-.list-div {
+.title {
     margin-top: 100px;
+    margin-left: 100px;
+    font-family: Arial;
+	font-weight: 700;
+	font-size: 40px;
+	color: #87CEFA;
 }
 
 .codes-list {
-    padding-left: 100px;
+    padding-left: 125px;
 	list-style-position: inside;
 	color: #87CEFA; 
 }
