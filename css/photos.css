@@ -23,6 +23,15 @@ body {
     background-color: #87CEFA;
 }
 
+.title {
+    margin-top: 74px;
+    margin-left: 100px;
+    font-family: Arial;
+    font-weight: 700;
+    font-size: 40px;
+    color: #87CEFA;
+}
+
 .link {
     margin: 100px;
     font-family: Arial;
