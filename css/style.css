@@ -3,10 +3,29 @@ body {
 	margin: 0;
 }
 
-.link {
+.header {
 	font-family: Arial;
-	font-size: 30px;
+	font-weight: 750;
+	font-size: 40px;
 	color: #87CEFA;
 
-	margin: 0 100px;
+	margin: 100px 100px;
+}
+
+.list-links {
+    padding-left: 100px;
+	list-style-position: inside;
+	color: #87CEFA;
+}
+
+.list-elements {
+	padding-bottom: 5px
+}
+
+.link {
+	font-family: Arial;
+	font-weight: 500;
+	font-size: 30px;
+	color: #87CEFA;
+	text-decoration: none;
 }

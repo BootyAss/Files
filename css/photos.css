@@ -8,12 +8,16 @@ body {
 	font-size: 30px;
 	color: #87CEFA;
 
-	margin: 0 100px;
+	margin: -250px;
+	text-decoration: none;
 }
 
 .photo {
-	display: block;
 	width: 300px;
 	height: 300px;
-	margin: 0 0;
+	margin: 50px 50px;
+}
+
+.end {
+	height: 50px;
 }
