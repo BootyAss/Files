@@ -5,12 +5,12 @@ body {
 
 .button {
     margin: 10px 10px;
-
+        
     font-family: Arial;
     font-size: 16px;
     padding: 8px 16px;
     color: #000000;
-
+    
     border-radius: 6px;
     border: 2px solid #87CEFA;
     background-color: #FFFFFF;
@@ -18,7 +18,7 @@ body {
 
 .button:hover {
     transition-duration: 0.6s;
-
+    
     padding: 8px 16px;
     background-color: #87CEFA;
 }
