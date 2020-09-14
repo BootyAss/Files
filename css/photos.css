@@ -33,7 +33,7 @@ body {
 }
 
 .link {
-    margin: 100px;
+    margin-left: 160px;
     font-family: Arial;
     font-weight: 500;
     font-size: 30px;
@@ -50,7 +50,8 @@ body {
 .photo {
     height: 300px;
     width: auto;
-    margin: 50px 50px;
+    margin: 50px 100px;
+    margin-bottom: 10px;
 }
 
 .end {
