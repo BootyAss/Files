@@ -28,7 +28,8 @@ Syntax highlighted code block
 
 # Photos
 [example](https://bootyass.github.io/Files/black.png)
-![image] (https://bootyass.github.io/Files/Frog.png)
+
+![Image of Frog](https://bootyass.github.io/Files/Frog.png)
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
