@@ -26,10 +26,10 @@ Syntax highlighted code block
 [Link](url) and ![Image](src)
 ```
 
-# photos
+# Photos
 ```
-[Link](bootyass.github.io/Files/black.png)
-![Image] (bootyass.github.io/Files/Frog.png)
+[example](https://bootyass.github.io/Files/black.png)
+![image] (https://bootyass.github.io/Files/Frog.png)
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
