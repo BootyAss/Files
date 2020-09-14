@@ -3,7 +3,7 @@ var orig = [];
 var resetButton, bwButton, invertButton;
 
 function preload() {
-  img = loadImage('https://bootyass.github.io/Files/Frog.jpg');
+  img = loadImage('https://bootyass.github.io/Files/Photos/Frog.png');
 }
 
 function setup() {
