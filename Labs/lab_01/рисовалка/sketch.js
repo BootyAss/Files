@@ -16,7 +16,7 @@ var end = {
 }
 
 function setup() {
-  createCanvas(800, 800);
+  createCanvas(1700, 800);
 }
 
 function draw() {
