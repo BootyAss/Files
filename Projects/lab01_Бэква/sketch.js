@@ -1,33 +1,62 @@
-var on = 0;
+var released = false;
+
+var lines = [];
+var amount = 0;
+
+var reset = false;
+
+var start = {
+  x: 0,
+  y: 0
+}
+
+var end = {
+  x: 0,
+  y: 0
+}
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(1000, 800);
 }
 
 function draw() {
+  if (reset) {
+    clear();
+    reset = !reset;
+  }
+  
   background(255);
 
-  fill(0, 0, 0);
-  noStroke();
+  fill(0);
   textSize(20);
-  textAlign(CENTER);
-  text("Press the mouse :)", width / 2, 100);
-  
-  strokeWeight(10);
-  stroke(50, 50, 200);
-  switch (on) {
-    case 3:
-      line(width / 2 - 20, height / 2 + 50, width / 2 - 50, height / 2 + 120);
-    case 2:
-      line(width / 2, height / 2 - 50, width / 2, height / 2 + 120);
-    case 1:
-      noFill();
-      arc(width / 2, height / 2, 100, 100, HALF_PI, PI + HALF_PI);
-      break;
+  text("R - reset", 50, 50);
+
+  strokeWeight(4);
+  fill(0, 0, 0);
+  if (mouseIsPressed) {
+    line(start.x, start.y, mouseX, mouseY);
+  }
+
+  for (let i = 0; i < amount; i++) {
+    let l = lines[i];
+    line(l[0], l[1], l[2], l[3]);
   }
 }
 
 function mousePressed() {
-  if (on < 3)
-    on++;
+  start.x = mouseX;
+  start.y = mouseY;
+}
+
+function mouseReleased() {
+  append(lines, [start.x, start.y, mouseX, mouseY]);
+  amount++;
+}
+
+function keyPressed () {
+  if (key === 'r') {
+    lines = [ ];
+    amount = 0;
+    reset = !reset;
+  }
 }

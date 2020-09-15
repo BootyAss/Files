@@ -9,9 +9,7 @@ function preload() {
 function setup() {
   createCanvas(500, 500);
 
-  background(200);
-
-  img.resize(width - 100, height - 100);
+  img.resize(500, 500);
 
   drawImg();
 
@@ -23,21 +21,24 @@ function setup() {
   }
 
   resetButton = createButton('Reset');
-  resetButton.size(100, 40);
+  resetButton.position(50, 580);
+  resetButton.size(150, 40);
   resetButton.mousePressed(Reset);
 
   bwButton = createButton('BW mode');
-  bwButton.size(100, 40);
+  bwButton.position(225, 580);
+  bwButton.size(150, 40);
   bwButton.mousePressed(BW);
 
   invertButton = createButton('Invert mode');
-  invertButton.size(100, 40);
+  invertButton.position(400, 580);
+  invertButton.size(150, 40);
   invertButton.mousePressed(Invert);
 }
 
 
 function drawImg() {
-  image(img, 50, 50);
+  image(img, 0, 0);
 }
 
 function BW() {
