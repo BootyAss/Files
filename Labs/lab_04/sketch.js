@@ -3,11 +3,11 @@ var orig = [];
 var resetButton, bwButton, invertButton;
 
 function preload() {
-  img = loadImage('https://bootyass.github.io/Files/Photos/black.png');
+  img = loadImage('https://bootyass.github.io/Files/Photos/Frog.png');
 }
 
 function setup() {
-  createCanvas(700, 500);
+  createCanvas(650, 500);
 
   background(245);
 
@@ -56,6 +56,7 @@ function setup() {
 
 function drawImg() {
   image(img, 50, 50);
+  //h1 = select('h1').position(500, 500);
 }
 
 function BW() {
@@ -117,15 +118,51 @@ function Sobel() {
     for (let y = 1; y < img.height - 1; y++) {
       X = 0;
       Y = 0;
-      for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 3; j++) {
-          I = x + i - 1;
-          J = y + j - 1;
-          temp = (orig[I][J][0] + orig[I][J][1] + orig[I][J][2]) / 3;
-          X += temp * Gx[i][j];
-          Y += temp * Gy[i][j];
-        }
-      }
+
+      // thats a clean code but ...
+      // for (let i = 0; i < 3; i++) {
+      //   for (let j = 0; j < 3; j++) {
+      //     I = x + i - 1;
+      //     J = y + j - 1;
+      //     temp = (orig[I][J][0] + orig[I][J][1] + orig[I][J][2]) / 3;
+      //     X += temp * Gx[i][j];
+      //     Y += temp * Gy[i][j];
+      //   }
+      // }
+
+      // thats faster
+      temp = (orig[x - 1][y - 1][0] + orig[x - 1][y - 1][1] + orig[x - 1][y - 1][2]) / 3;
+      X += temp * Gx[0][0];
+      Y += temp * Gy[0][0];
+
+      temp = (orig[x][y - 1][0] + orig[x][y - 1][1] + orig[x][y - 1][2]) / 3;
+      X += temp * Gx[1][0];
+      Y += temp * Gy[1][0];
+
+      temp = (orig[x + 1][y - 1][0] + orig[x + 1][y - 1][1] + orig[x + 1][y - 1][2]) / 3;
+      X += temp * Gx[2][0];
+      Y += temp * Gy[2][0];
+
+      temp = (orig[x - 1][y][0] + orig[x - 1][y][1] + orig[x - 1][y][2]) / 3 ;
+      X += temp * Gx[0][1];
+      Y += temp * Gy[0][1];
+
+      temp = (orig[x + 1][y][0] + orig[x + 1][y][1] + orig[x + 1][y][2]) / 3 ;
+      X += temp * Gx[2][1];
+      Y += temp * Gy[2][1];
+
+      temp = (orig[x - 1][y + 1][0] + orig[x - 1][y + 1][1] + orig[x - 1][y + 1][2]) / 3 ;
+      X += temp * Gx[0][2];
+      Y += temp * Gy[0][2];
+
+      temp = (orig[x][y + 1][0] + orig[x][y + 1][1] + orig[x][y + 1][2]) / 3 ;
+      X += temp * Gx[1][2];
+      Y += temp * Gy[1][2];
+
+      temp = (orig[x + 1][y + 1][0] + orig[x + 1][y + 1][1] + orig[x + 1][y + 1][2]) / 3;
+      X += temp * Gx[2][2];
+      Y += temp * Gy[2][2];
+
       s = sqrt(sq(X) + sq(Y));
       img.set(x, y, color(s, s, s));
     }
