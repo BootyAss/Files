@@ -127,7 +127,7 @@ function Sobel() {
         }
       }
       s = sqrt(sq(X) + sq(Y));
-      img.set(x, y, color(s + 100, s + 100, s + 100));
+      img.set(x, y, color(s, s, s));
     }
   }
   img.updatePixels();
