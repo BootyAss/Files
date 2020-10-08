@@ -6,12 +6,12 @@ body {
 
 canvas {
   display: block;
-  border: 5px dashed #edbe2f;
-  border-radius: 7.5%
+  border: 5px dotted #edbe2f;
+  border-radius: 7.5%;
 }
 
 .header {
-  margin: 0 40px;
+  margin: 0 75px;
   margin-top: -30px;
   margin-bottom: 30px;
   font-family: Lucida Calligraphy;
