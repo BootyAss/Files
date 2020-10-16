@@ -1,122 +1,68 @@
-var size = 400;
-
-var start = {
-  x: 0,
-  y: 0
-}
-
-var end = {
-  x: 0,
-  y: 0
-}
-
-var mouseIsReleased = false;
-
-var linesDone = false,
-  rectDone = false,
-  result = false;
+var size = 600;
 
 function setup() {
   createCanvas(size, size);
   background(255);
-
-  topLayer = createGraphics(size, size);
-  bottomLayer = createGraphics(size, size);
-  resLayer = createGraphics(size, size);
-
-  inp = createInput('4');
-  inp.style('width', '100px');
-  inp.style('margin-left', '50px');
-  inp.style('margin-top', '12px'); 
-
-  build = createButton('Lines');
-  build.style('width', '50px');
-  build.mousePressed(drawStart);
 }
 
 
-function draw() {
-  if (linesDone) {
-    drawBottom();
-    drawTop();
-
-    image(bottomLayer, 0, 0);
-    image(topLayer, 0, 0);
-  }
-
-  if (linesDone && rectDone) {
-    print('r');
-    drawRes();
-    image(resLayer, 0, 0);
-  }
-}
+let dLine = [];
+let dObj = [];
+let line = false;
 
 
-function mousePressed() {
-  if (linesDone) {
-    start.x = mouseX;
-    start.y = mouseY;
-  }
-}
+function mouseClicked() {
+  if (mouseX < size && mouseY < size) {
+    noStroke();
+    if (line) {
+      if (dLine.length == 0) {
+        fill(0, 0, 0);
+        rect(mouseX, mouseY, 2, 2);
+        dLine.push([mouseX, mouseY]);
+      } else {
+        fill(255, 0, 0);
+        rect(mouseX, mouseY, 2, 2);
+        dLine.push([mouseX, mouseY]);
+        drawLine(dLine[0][0], dLine[0][1], dLine[1][0], dLine[1][1], color(0, 0, 0));
 
-function mouseReleased() {
-  if (mouseX < size && mouseY < size && linesDone) {
-    end.x = mouseX;
-    end.y = mouseY;
-    mouseIsReleased = true;
-  }
-}
+        intersect();
 
-function drawBottom() {
-  if (mouseIsPressed && linesDone) {
-    bottomLayer.background(255);
-    bottomLayer.fill(225, 65, 65);
-    bottomLayer.rect(start.x, start.y, mouseX - start.x, mouseY - start.y);
-  }
-}
-
-function drawTop() {
-  if (mouseIsReleased && linesDone) {
-    bottomLayer.background(255);
-    drawRect(start.x, start.y, end.x, end.y);
-    mouseIsReleased = false;
-  }
-}
-
-
-function randomize() {
-  return floor(random(0, size));
-}
-
-function drawStart() {
-  linesDone = false;
-  result = false;
-
-  let amount;
-  try {
-    amount = int(inp.value());
-  } catch (e) {
-    return;
-  }
-
-  for (let i = 0; i < size; i++) {
-    for (let j = 0; j < size; j++) {
-      topLayer.set(i, j, color(255, 255, 255, 0));
+        dLine = [];
+      }
+    } else {
+      fill(255, 0, 0);
+      rect(mouseX, mouseY, 2, 2);
+      dObj.push([mouseX, mouseY]);
+      if (dObj.length > 1) {
+        prev = dObj[dObj.length - 2];
+        curr = dObj[dObj.length - 1];
+        drawLine(prev[0], prev[1], curr[0], curr[1], color(255, 0, 0));
+      }
     }
   }
-
-  topLayer.background(255);
-
-  for (let i = 0; i < amount; i++) {
-    drawLine(randomize(), randomize(), randomize(), randomize());
-  }
-  topLayer.updatePixels();
-
-  linesDone = true;
 }
 
 
-function drawLine(x0, y0, x1, y1) {
+function keyPressed() {
+  if (key === ' ') {
+    if (dObj.length > 2) {
+      first = dObj[0];
+      last = dObj[dObj.length - 1];
+      drawLine(first[0], first[1], last[0], last[1], color(255, 0, 0));
+      line = true;
+    }
+  }
+  
+  if (key === 'r' || key === 'к') {
+    background(255);
+    line = false;
+    dObj = [];
+    dLine = [];
+  }
+}
+
+
+function drawLine(x0, y0, x1, y1, c) {
   var dx = Math.abs(x1 - x0);
   var dy = Math.abs(y1 - y0);
   var sx = (x0 < x1) ? 1 : -1;
@@ -135,63 +81,123 @@ function drawLine(x0, y0, x1, y1) {
       err += dx;
       y0 += sy;
     }
-    topLayer.set(x0, y0, color(0, 0, 0, 255));
+    
+    fill(c);
+    rect(x0, y0, 1, 1);
   }
 }
 
-function drawRect(x0, y0, x1, y1) {
-  rectDone = false;
-  for (let i = 0; i < size; i++) {
-    for (let j = 0; j < size; j++) {
-      bottomLayer.set(i, j, color(255, 255, 255));
-    }
+
+function check(p1, p2, p3, p4) {
+  // конец первого отрезка находится левее начала правого отрезка
+  if (p2[0] < p3[0]) {
+    return false;
   }
 
-  if (x0 >= x1) {
-    temp = x0;
-    x0 = x1;
-    x1 = temp;
-  }
-  if (y0 >= y1) {
-    temp = y0;
-    y0 = y1;
-    y1 = temp;
-  }
+  //если оба отрезка вертикальные
+  if ((p1[0] - p2[0] == 0) && (p3[0] - p4[0] == 0)) {
 
-  for (let x = x0; x <= x1; x++) {
-    for (let y = y0; y <= y1; y++) {
-      bottomLayer.set(x, y, color(225, 65, 65));
-    }
-  }
-  bottomLayer.updatePixels();
+    //если они лежат на одном X
+    if (p1[0] == p3[0]) {
 
-  rectDone = true;
-}
-
-
-function drawRes() {
-  result = true;
-  background(255);
-  linesDone = false;
-  rectDone = false;
-  
-  for (let i = 0; i < size; i++) {
-    for (let y = 0; y < size; y++) {
-        resLayer.set(i, y, color(255, 255, 255));
-    }
-  }
-
-  
-  for (let i = start.x; i < end.x; i++) {
-    for (let y = start.y; y < end.y; y++) {
-      f = topLayer.get(i, y)[0] == 0 && topLayer.get(i, y)[1] == 0 && topLayer.get(i, y)[2] == 0 && topLayer.get(i, y)[3] == 255;
-      
-      s = bottomLayer.get(i, y)[0] == 225 && bottomLayer.get(i, y)[1] == 65 && bottomLayer.get(i, y)[2] == 65 && bottomLayer.get(i, y)[3] == 255;
-      
-      if (f && s) {
-        resLayer.set(i, y, color(65, 65, 225));
+      //они НЕ пересекаются
+      if (((max(p1[1], p2[1]) < min(p3[1], p4[1])) || (min(p1[1], p2[1]) > max(p3[1], p4[1])))) {
+        return false;
       }
     }
   }
-  resLayer.updatePixels();
+
+  //если первый отрезок вертикальный
+  if (p1[0] - p2[0] == 0) {
+
+    //найдём Xa, Ya - точки пересечения двух прямых
+    Xa = p1[0];
+    A2 = (p3[1] - p4[1]) / (p3[0] - p4[0]);
+    b2 = p3[1] - A2 * p3[0];
+    Ya = A2 * Xa + b2;
+
+    if (p3[0] <= Xa && p4[0] >= Xa && min(p1[1], p2[1]) <= Ya && max(p1[1], p2[1]) >= Ya) {
+      return [Xa, Ya];
+    }
+
+    return false;
+  }
+
+  //если второй отрезок вертикальный
+  if (p3[0] - p4[0] == 0) {
+
+    //найдём Xa, Ya - точки пересечения двух прямых
+    Xa = p3[0];
+    A1 = (p1[1] - p2[1]) / (p1[0] - p2[0]);
+    b1 = p1[1] - A1 * p1[0];
+    Ya = A1 * Xa + b1;
+
+    if (p1[0] <= Xa && p2[0] >= Xa && min(p3[1], p4[1]) <= Ya && max(p3[1], p4[1]) >= Ya) {
+      return [Xa, Ya];
+    }
+
+    return false;
+  }
+
+  //оба отрезка невертикальные
+  A1 = (p1[1] - p2[1]) / (p1[0] - p2[0]);
+  A2 = (p3[1] - p4[1]) / (p3[0] - p4[0]);
+  b1 = p1[1] - A1 * p1[0];
+  b2 = p3[1] - A2 * p3[0];
+
+  if (A1 == A2) {
+    return false; //отрезки параллельны
+  }
+
+  //Xa - абсцисса точки пересечения двух прямых
+  Xa = (b2 - b1) / (A1 - A2);
+  Ya = A1 * Xa + b1;
+
+  if ((Xa < max(p1[0], p3[0])) || (Xa > min(p2[0], p4[0]))) {
+    return false; //точка Xa находится вне пересечения проекций отрезков на ось X 
+  } else {
+    return [Xa, Ya];
+  }
+  return false;
+}
+
+function intersect() {
+  let p1 = [dLine[0][0], dLine[0][1]];
+  let p2 = [dLine[1][0], dLine[1][1]];
+  if (p2[0] < p1[0]) {
+    tmp = p1;
+    p1 = p2;
+    p2 = tmp;
+  }
+
+  let p3, p4;
+  let Coards = [];
+  for (let i = 0; i < dObj.length; i++) {
+    p3 = [dObj[i][0], dObj[i][1]];
+
+    let j = i + 1;
+    if (j == dObj.length) {
+      j = 0;
+    }
+
+    p4 = [dObj[j][0], dObj[j][1]];
+
+    if (p4[0] < p3[0]) {
+      tmp = p3;
+      p3 = p4;
+      p4 = tmp;
+    }
+
+    res = check(p1, p2, p3, p4);
+    if (res) {
+      Coards.push(res);
+    }
+  }
+  if (Coards.length == 2) {
+    x0 = floor(Coards[0][0]);
+    y0 = floor(Coards[0][1]);
+    x1 = floor(Coards[1][0]);
+    y1 = floor(Coards[1][1]);
+    drawLine(x0, y0, x1, y1, color(0, 0, 255));
+  }
 }
