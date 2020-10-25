@@ -43,5 +43,5 @@ canvas:hover {
 .button:hover {
   border: solid #dccdfa 2px;
   color: rgb(255, 255, 255);
-  background-color: rgb(27, 27, 27);
+  background-color: rgb(50, 50, 50);
 }
