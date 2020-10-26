@@ -6,7 +6,9 @@ function setup() {
   closeB.mousePressed(close);
   resetB = select("#reset");
   resetB.mousePressed(reset);
+  colorS = select("#cSlider");
 }
+
 
 var dots = [];
 let connected = false;
@@ -19,25 +21,44 @@ function draw() {
   stroke(0, 0, 0);
   strokeWeight(3);
 
-  // paint all the lines
+  drawAllLines();
+  drawTempLine();
+
+}
+
+
+function drawAllLines() {
   for (let i = 0; i < dots.length - 1; i++) {
     line(dots[i][0], dots[i][1], dots[i + 1][0], dots[i + 1][1]);
   }
-  
-  if (dots.length > 2 && connected) {
+  if (connected) {
+    drawLastLine();
+  }
+}
+
+function drawLastLine() {
+  if (dots.length > 2) {
     let last = dots[dots.length - 1],
       first = dots[0];
     line(first[0], first[1], last[0], last[1]);
   }
+}
 
-  // paint temp dot
+function drawTempLine() {
   if (dots.length > 0 && !connected) {
     let last = dots[dots.length - 1];
     line(last[0], last[1], mouseX, mouseY);
   }
 }
 
+
 function mouseClicked() {
+  if (mouseX < size && mouseX > 0 && mouseY < size && mouseY > 0 && !connected) {
+    dots.push([mouseX, mouseY]);
+  }
+}
+
+function touchEnded() {
   if (mouseX < size && mouseX > 0 && mouseY < size && mouseY > 0 && !connected) {
     dots.push([mouseX, mouseY]);
   }
@@ -46,13 +67,13 @@ function mouseClicked() {
 function close() {
   background(255);
   if (dots.length > 2) {
+    drawLastLine();
+    fillPoly();
     connected = true;
-    let last = dots[dots.length - 1],
-      first = dots[0];
-    line(first[0], first[1], last[0], last[1]);
-    MinMax();
+    drawAllLines();
   }
 }
+
 
 function reset() {
   background(255);
@@ -60,7 +81,7 @@ function reset() {
   connected = false;
 }
 
-function MinMax() {
+function fillPoly() {
   let Y = [];
   for (let dot of dots) {
     Y.push(dot[1]);
@@ -98,14 +119,12 @@ function MinMax() {
 
     if (inter.length % 2 == 0 && inter.length > 0) {
       for (let i = 0; i < inter.length; i += 2) {
-        stroke(255, 0, 0);
+        stroke(colorS.value());
         line(inter[i], y, inter[i + 1], y);
       }
     }
   }
 }
-
-
 
 function check(p1, p2, p3, p4) {
   // конец первого отрезка находится левее начала правого отрезка

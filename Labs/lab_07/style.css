@@ -16,27 +16,30 @@ canvas:hover {
 }
 
 .block {
-  width: 455px;
+  left: 10px;
+  position: relative;
+  width: 530px;
+  heigth: 75px;
   margin: 40px auto;
-  margin-top: 75px;
+  margin-top: 100px;
 }
 
 .button {
   -webkit-appearance: none;
   appearance: none;
-  
+
 
   display: inline;
   width: 225px;
   height: 75px;
-  
+
   font-size: 23px;
   font-family: Lucida Console;
   text-align: center;
-  
+
   border: solid black 2px;
-  border-radius: 7px; 
-  
+  border-radius: 7px;
+
   transition-duration: 0.5s;
 }
 
@@ -44,4 +47,38 @@ canvas:hover {
   border: solid #dccdfa 2px;
   color: rgb(255, 255, 255);
   background-color: rgb(50, 50, 50);
+}
+
+.color {
+  -webkit-appearance: none;
+  appearance: none;
+
+  position: relative;
+  top: 27.5px;
+  left: -20px;
+  
+  width: 65px;
+  height: 65px;
+
+  border: none;
+  border-radius: 75px;
+
+  background: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.color::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.color::-webkit-color-swatch {
+  border: solid #dccdfa 1px;
+  border-radius: 75px;
+  transition-duration: 0.5s;
+}
+
+.color::-webkit-color-swatch:hover {
+  border: solid black 1px;
+  border-radius: 75px;
 }
