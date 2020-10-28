@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  padding: 0;
+
+  background-color: #1b1b1b;
+}
+
+canvas {
+  display: block;
+  width: 800;
+  height: 800;
+
+  margin: 30px auto;
+
+  border: solid #1b1b1b 2px;
+  transition-duration: 0.4s;
+}
+
+canvas:hover {
+  border: solid #41f321 2px;
+  box-shadow: 0 0 24px 6px rgba(65, 243, 33, 0.2), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+}
+
+.box {
+  width: 390px;
+  height: 70px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.button {
+  width: 160px;
+  height: 60px;
+  margin: 0 10px;
+  
+  font-family: Lucida Console;
+  font-size: 27px;
+  text-transform: uppercase;
+  color: #41f321;
+  
+  border-radius: 2px;
+  border: solid rgb(27, 216, 27) 2px;
+  
+  background-color: #1b1b1b;
+  
+  outline: none;
+
+  transition-duration: 0.35s;
+}
+
+.button:hover {
+  background-color: #41f321;
+  color: #1b1b1b;
+  box-shadow: 0 4px 24px 6px rgba(65, 243, 33, 0.2), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+}
+
+p {
+  text-align: right;
+}
+
+a {
+  margin: 0 15px;
+  font-family: Lucida Console;
+  font-size: 12px;
+  color: #41f321;
+  text-decoration: none;
+}
