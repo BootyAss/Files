@@ -1,23 +1,44 @@
+:root {
+    --orange: #d87537;
+}
 
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background: #1b1b1b;
+}
 
-.list {
-    position: relative;
-    top: 150px;
-    text-align: center;
+.logo {
+    position: fixed;
+
+    width: 200px;
+    height: 62px;
+    top: 50px;
+    left: 50px;
+    transition: transform 0.5s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.menu {
+    position: fixed;
+    top: 50px;
+    right: 50px;
     display: block;
     list-style: none;
 }
 
-.lab {
+.link {
     display: inline-block;
-    width : 40%;
+    width: 175px;
     height: 75px;
-    
     margin: 7px 0;
 
     line-height: 75px;
-    text-align: left;
-    padding: 0 50px;
+    text-align: center;
 
     font-family: monospace;
     text-transform: uppercase;
@@ -30,7 +51,7 @@
     transition-duration: 0.4s;
 }
 
-.lab:hover {
+.link:hover {
     color: black;
     background-color: var(--orange);
     transform: scale(1.05);
