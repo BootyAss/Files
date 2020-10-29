@@ -1,18 +1,18 @@
-
-
 .list {
     position: relative;
-    top: 150px;
+    top: 200px;
+    width: 500px;
+    margin: 0 auto;
     text-align: center;
     display: block;
     list-style: none;
 }
 
 .lab {
-    display: inline-block;
-    width : 40%;
+    display: block;
+    width: 500px;
     height: 75px;
-    
+
     margin: 7px 0;
 
     line-height: 75px;
