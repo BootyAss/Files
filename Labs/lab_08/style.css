@@ -13,19 +13,17 @@ canvas {
   margin: 25px auto;
 
   border: solid #1b1b1b 2px;
-  transition-duration: 0.4s;
+  transition: border 0.4s, box-shadow 0.5s;
 }
 
 canvas:hover {
   border: solid #41f321 2px;
-  box-shadow: 0 0 24px 6px rgba(65, 243, 33, 0.2), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 0 24px 6px rgba(65, 243, 33, 0.3), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 
 }
 
-
-
 .box {
-  width: 390px;
+  width: 650px;
   height: 70px;
   margin: 0 auto;
   margin-top: 30px;
@@ -34,12 +32,11 @@ canvas:hover {
 .button {
   position: relative;
 
-  width: 160px;
-  height: 60px;
   margin: 0 10px;
 
   font-family: Lucida Console;
-  font-size: 27px;
+  font-size: 25px;
+  padding: 20px 30px;
   text-transform: uppercase;
   letter-spacing: 3px;
   color: #41f321;
@@ -52,12 +49,12 @@ canvas:hover {
   outline: none;
   overflow: hidden;
 
-  transition-duration: 0.5s;
+  transition: color 0.5s, box-shadow 0.5s;
 }
 
 .button:hover {
   color: #1b1b1b;
-  box-shadow: 0 4px 24px 8px rgba(65, 243, 33, 0.2), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 24px 8px rgba(65, 243, 33, 0.3), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .button span {

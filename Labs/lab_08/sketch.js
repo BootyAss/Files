@@ -1,8 +1,10 @@
 let dots = [];
-let size = 750;
+var size = 750;
 
 var V = [],
   E = [];
+
+var obj = 0;
 
 function setup() {
   createCanvas(size, size);
@@ -10,8 +12,11 @@ function setup() {
   let shuttleB = select("#shuttle");
   shuttleB.mousePressed(shuttle);
 
-  let resetB = select("#reset");
-  resetB.mousePressed(reset);
+  let teapotB = select("#teapot");
+  teapotB.mousePressed(teapot);
+
+  let resetB = select("#humanoid");
+  resetB.mousePressed(humanoid);
 }
 
 function reset() {
@@ -55,10 +60,14 @@ function verticies() {
     v[0] *= ceil(k * 0.9);
     v[1] *= ceil(k * 0.9);
 
-    v[0] += size * 0.05;
+    v[0] += size * obj;
     v[1] += (size - dY * k) / 2;
   }
-
+  
+  for (let v of V) {
+    v[1] = size - v[1];
+  }
+  
   draw();
 }
 
@@ -71,10 +80,10 @@ function draw() {
       dots.push([V[e[i] - 1][0], V[e[i] - 1][1]]);
     }
 
-    let r = random(0, E.length) % 255;
-    let g = random(0, E.length) % 255;
-    let b = random(0, E.length) % 255;
-    let a = 100;
+    let r = random(100, 225);
+    let g = random(100, 225);
+    let b = random(100, 225);
+    let a = 175;
     stroke(r, g, b, a);
     fillPoly();
     dots = [];
