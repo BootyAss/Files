@@ -18,9 +18,11 @@ canvas {
 
 canvas:hover {
   border: solid #41f321 2px;
-  box-shadow: 0 0 24px 6px rgba(65, 243, 33, 0.2), 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 0 24px 6px rgba(65, 243, 33, 0.2), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 
 }
+
+
 
 .box {
   width: 390px;
@@ -30,30 +32,54 @@ canvas:hover {
 }
 
 .button {
+  position: relative;
+
   width: 160px;
   height: 60px;
   margin: 0 10px;
-  
+
   font-family: Lucida Console;
   font-size: 27px;
   text-transform: uppercase;
+  letter-spacing: 3px;
   color: #41f321;
-  
+
   border-radius: 2px;
   border: solid rgb(27, 216, 27) 2px;
-  
-  background-color: #1b1b1b;
-  
-  outline: none;
 
-  transition-duration: 0.35s;
+  background-color: rgba(0, 0, 0, 0);
+
+  outline: none;
+  overflow: hidden;
+
+  transition-duration: 0.5s;
 }
 
 .button:hover {
-  background-color: #41f321;
   color: #1b1b1b;
-  box-shadow: 0 4px 24px 6px rgba(65, 243, 33, 0.2), 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 4px 24px 8px rgba(65, 243, 33, 0.2), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
 
+.button span {
+  position: absolute;
+  display: block;
+  
+  width: 0;
+  height: 0;
+  
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #41f321;
+  
+  z-index: -1;
+  
+  filter: blur(15px);
+  transition: width 0.5s, height 0.5s;
+}
+
+.button:hover span {
+  width: 450px;
+  height: 250px;
 }
 
 p {
