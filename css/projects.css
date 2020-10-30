@@ -1,8 +1,13 @@
+html, body {
+    height: 100%;
+}
+
 .list {
     position: relative;
-    top: 200px;
+    top: 150px;
     width: 500px;
-    margin: 0 550px;
+    margin: 0 auto;
+    margin-bottom: 100px;
     text-align: center;
     display: block;
     list-style: none;
@@ -10,7 +15,8 @@
 
 .lab {
     display: block;
-    width: 500px;
+    width: 100%;
+    min-width: auto;
     height: 75px;
 
     margin: 7px 0;
@@ -35,3 +41,5 @@
     background-color: var(--orange);
     transform: scale(1.05);
 }
+
+

@@ -1,6 +1,6 @@
 body,
 html {
-    width: auto;
+
 }
 
 .list {
@@ -9,6 +9,7 @@ html {
     margin: 100px auto;
     list-style: none;
     display: block;
+    margin-bottom: 100px;
 }
 
 .photo_link {
@@ -40,5 +41,6 @@ html {
     display: inline-block;
     width: 500px;
     height: auto;
-    margin-bottom: 75px;
+    margin-bottom: 50px;
 }
+

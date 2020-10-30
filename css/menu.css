@@ -4,8 +4,7 @@
 
 html,
 body {
-    width: 100%;
-    height: 100%;
+
     background: #1b1b1b;
 }
 
@@ -56,4 +55,14 @@ body {
     color: black;
     background-color: var(--orange);
     transform: scale(1.05);
+}
+
+.end {
+    display:inline-block;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding: 30px;
+    vertical-align: bottom;
+    color: wheat;
 }
