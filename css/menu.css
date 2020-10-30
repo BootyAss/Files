@@ -19,7 +19,7 @@ body {
 }
 
 .logo:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .menu {
@@ -54,7 +54,7 @@ body {
 .link:hover {
     color: black;
     background-color: var(--orange);
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .end {

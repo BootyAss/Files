@@ -4,35 +4,23 @@ body {
     background: #1b1b1b;
 }
 
-.logo {
-    position: fixed;
-
-    width: 200px;
-    height: 62px;
-    top: 50px;
-    left: 50px;
-    transition: transform 0.5s;
-}
-
-.logo:hover {
-    transform: scale(1.05);
-}
 
 .List {
     position: relative;
-    width: 400px;
-    margin: 400px auto;
+    width: auto;
+    text-align: center;
+    margin: 400px 0;
     list-style: none;
 }
 
 .img {
     margin: 0 20px;
-    width:150px;
+    width: 150px;
     height: 150px;
     border-radius: 50%;
     transition-duration: 0.5s;
 }
 
 .img:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
