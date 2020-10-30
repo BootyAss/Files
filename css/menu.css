@@ -67,10 +67,19 @@ body {
     color: wheat;
 }
 
-.card {
+.cards {
     position: relative;
+    display: inline-block;
+    width: 950px;
+    margin: 10% 20%;
+    height: 700px;
+}
+.card {
+    margin: 30px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
     width: 400px;
-    margin: 15% 25%;
     height: 470px;
     overflow: hidden;
     background-color: var(--orange);
@@ -82,7 +91,7 @@ body {
 .card:hover {
     transform: scale(1.05);
     height: 560px;
-    box-shadow: 0 10px 10px 5px black;
+    box-shadow: 0 10px 20px 7px black;
 }
 
 .profile-container {
@@ -96,7 +105,7 @@ body {
     border-radius: 10px 10px 0 0;
     margin: 20px 20px;
     width: 360px;
-    height: auto;
+    height: 340px;
 }
 
 .header {
