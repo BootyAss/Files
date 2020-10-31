@@ -6,8 +6,13 @@ html,
 body {
     margin: 0;
     padding: 0;
+    width: auto;
     height: auto;
     background: #1b1b1b;
+}
+
+.content {
+    display: none;
 }
 
 .logo {
@@ -68,6 +73,3 @@ body {
     vertical-align: bottom;
     color: wheat;
 }
-
-
-

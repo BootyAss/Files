@@ -4,8 +4,8 @@ function f() {
 }
 
 window.onload = function () {
-    let preloader = document.getElementById('preloader');
     let content = document.getElementById('content');
     content.style.display = 'none';
+    let preloader = document.getElementById('preloader');
     setTimeout(f, 750);
 }
