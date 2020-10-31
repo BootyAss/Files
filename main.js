@@ -1,4 +1,11 @@
+function f() {
+    preloader.style.display = 'none';
+    content.style.display = 'initial';
+}
+
 window.onload = function () {
     let preloader = document.getElementById('preloader');
-    preloader.style.display = 'none';
+    let content = document.getElementById('content');
+    content.style.display = 'none';
+    setTimeout(f, 1000);
 }
