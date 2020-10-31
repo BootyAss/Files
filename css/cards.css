@@ -41,6 +41,10 @@
     transition: transform 0.5s;
 }
 
+.profile:hover {
+    transform: scale(1.05);
+}
+
 .header {
     padding: 20px 30px;
 
