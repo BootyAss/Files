@@ -6,7 +6,7 @@ html,
 body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: auto;
     background: #1b1b1b;
 }
 
@@ -69,68 +69,5 @@ body {
     color: wheat;
 }
 
-.cards {
-    position: relative;
-    display: inline-block;
-    width: 950px;
-    margin-top: 15%;
-    margin-left: 20%;
-    height: 600px;
-}
-.card {
-    margin: 30px;
-    position: relative;
-    display: inline-block;
-    vertical-align: top;
-    width: 400px;
-    height: 470px;
-    overflow: hidden;
-    background-color: var(--orange);
-    border-radius: 10px;
-        
-    transition: height 0.3s, transform 0.5s, box-shadow 0.75s;
-}
 
-.card:hover {
-    transform: scale(1.05);
-    height: 560px;
-    box-shadow: 0 10px 20px 7px black;
-}
-
-.profile-container {
-    border-radius: 10px 10px 0 0;
-    width: 400px;
-    height: 380px;
-    background-color: white;
-}
-
-.profile {
-    border-radius: 10px 10px 0 0;
-    margin: 20px 20px;
-    width: 360px;
-    height: 340px;
-}
-
-.header {
-    margin-top: -5px;
-    padding: 20px 30px;
-    
-    font-family: monospace;
-    font-size: 45px;
-    
-    color: white;
-    background-color: #EC894B;
-}
-
-.container {
-    padding: 15px 30px;
-    
-    font-family: sans-serif;
-    font-size: 18px;
-    font-weight: 100;
-    
-    color: white;
-    background-color: var(--orange);
-    border-radius:0 0 10px 10px;
-}
 
