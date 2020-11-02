@@ -14,7 +14,7 @@
     display: inline-block;
     vertical-align: top;
     width: 400px;
-    height: 490px;
+    height: 480px;
     overflow: hidden;
     background-color: rgba(0,0,0,0);
     border-radius: 10px;
@@ -24,20 +24,21 @@
 
 .card:hover {
     transform: scale(1.05);
-    height: 580px;
+    height: 570px;
     box-shadow: 0 10px 20px 7px black;
 }
 
 .profile-container {
     border-radius: 10px 10px 0 0;
     width: 400px;
-    height: 400px;
+    height: 390px;
     background-color: rgba(0,0,0,0);
 }
 
 .profile {
     width: 400px;
     height: 400px;
+    transform-origin: bottom;
     transition: transform 0.5s;
 }
 
