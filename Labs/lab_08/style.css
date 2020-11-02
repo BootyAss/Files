@@ -89,4 +89,9 @@ a {
   font-size: 12px;
   color: #41f321;
   text-decoration: none;
+  transition: font-size 0.3s;
+}
+
+a:hover {
+  font-size: 14px;
 }

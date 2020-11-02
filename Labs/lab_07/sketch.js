@@ -19,7 +19,7 @@ function draw() {
   }
 
   stroke(0, 0, 0);
-  strokeWeight(3);
+  strokeWeight(4);
 
   drawAllLines();
   drawTempLine();
