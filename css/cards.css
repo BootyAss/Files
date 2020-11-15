@@ -5,7 +5,7 @@
     height: 600px;
 
     margin: 0 auto;
-    margin-top: 15%;
+    margin-top: 10%;
 }
 
 .card {
@@ -18,13 +18,15 @@
     overflow: hidden;
     background-color: rgba(0,0,0,0);
     border-radius: 10px;
+    
+    transform-origin: top; 
 
-    transition: height 0.3s, transform 0.5s, box-shadow 0.75s;
+    transition: height 0.3s, transform 0.2s, box-shadow 0.5s;
 }
 
 .card:hover {
     transform: scale(1.05);
-    height: 570px;
+    height: 580px;
     box-shadow: 0 10px 20px 7px black;
 }
 
@@ -38,12 +40,6 @@
 .profile {
     width: 400px;
     height: 400px;
-    transform-origin: bottom;
-    transition: transform 0.5s;
-}
-
-.profile:hover {
-    transform: scale(1.05);
 }
 
 .header {
@@ -62,11 +58,26 @@
     
     overflow: hidden;
     
-    font-family: sans-serif;
-    font-size: 18px;
-    font-weight: 100;
+    font-family: monospace;
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: 1000;
 
     color: white;
     background-color: var(--orange);
     border-radius: 0 0 10px 10px;
+}
+
+
+.twitch {
+    display: inline-block;
+
+    text-transform: uppercase;
+    font-family: monospace;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-decoration: none;
+
+    color: white;
+    
 }
